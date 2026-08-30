@@ -53,23 +53,31 @@ body {
   backdrop-filter: blur(8px);
 }
 
+.nav-left { display: flex; align-items: center; gap: 1.5rem; }
 .nav-brand { display: flex; align-items: center; gap: 10px; }
 .nav-logo  { font-size: 1.5rem; }
 .nav-title { font-size: 1.1rem; font-weight: 700; color: var(--primary-light); letter-spacing: 1px; }
 
 .nav-links { display: flex; align-items: center; gap: 8px; }
 .nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   padding: 8px 16px;
   border-radius: var(--radius-sm);
-  color: var(--text-muted);
+  color: var(--text);
+  background: rgba(79, 70, 229, 0.25);
+  border: 1px solid rgba(129, 140, 248, 0.3);
   text-decoration: none;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
   transition: var(--transition);
 }
 .nav-link:hover, .nav-link.active {
-  color: var(--text);
-  background: rgba(79,70,229,0.15);
+  color: #ffffff;
+  background: var(--primary);
+  border-color: var(--primary-light);
+  box-shadow: 0 2px 10px rgba(79, 70, 229, 0.35);
 }
 
 .nav-user { display: flex; align-items: center; gap: 12px; }
