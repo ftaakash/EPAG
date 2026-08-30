@@ -100,18 +100,22 @@ function initSQLiteDatabase(PDO $pdo): void {
     
     $pdo->exec($schema);
 
-    // Seed data
-    $defaultPassHash = password_hash('password', PASSWORD_BCRYPT);
+    // Seed data with role-specific passwords (e.g. employee, manager, finance, materials, admin)
+    $empHash = password_hash('employee', PASSWORD_BCRYPT);
+    $mgrHash = password_hash('manager', PASSWORD_BCRYPT);
+    $finHash = password_hash('finance', PASSWORD_BCRYPT);
+    $matHash = password_hash('materials', PASSWORD_BCRYPT);
+    $admHash = password_hash('admin', PASSWORD_BCRYPT);
 
     $seed = "
     INSERT INTO departments (name) VALUES ('Engineering'), ('Administration');
 
     INSERT INTO users (name, email, password_hash, role, dept_id) VALUES
-    ('Alice Employee',  'employee@epag.com',  '$defaultPassHash', 'employee',  1),
-    ('Bob Manager',     'manager@epag.com',   '$defaultPassHash', 'manager',   1),
-    ('Carol Finance',   'finance@epag.com',   '$defaultPassHash', 'finance',   2),
-    ('Dave Materials',  'materials@epag.com', '$defaultPassHash', 'materials', 2),
-    ('Eve Admin',       'admin@epag.com',     '$defaultPassHash', 'admin',     2);
+    ('Alice Employee',  'employee@epag.com',  '$empHash', 'employee',  1),
+    ('Bob Manager',     'manager@epag.com',   '$mgrHash', 'manager',   1),
+    ('Carol Finance',   'finance@epag.com',   '$finHash', 'finance',   2),
+    ('Dave Materials',  'materials@epag.com', '$matHash', 'materials', 2),
+    ('Eve Admin',       'admin@epag.com',     '$admHash', 'admin',     2);
 
     INSERT INTO vendors (name, approved) VALUES ('TechSupply Co.', 1), ('Office World Ltd.', 1);
     ";

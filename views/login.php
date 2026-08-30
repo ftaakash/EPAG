@@ -32,8 +32,6 @@
       </div>
       <button type="submit" class="btn btn-primary btn-block" id="loginBtn">Sign In</button>
     </form>
-
-    <p class="auth-hint">Demo: use any role email with password <strong>password</strong></p>
   </div>
 
   <script src="public/js/app.js"></script>

@@ -53,14 +53,14 @@ php generate_hashes.php > seed_generated.sql
 http://localhost/epag
 ```
 
-## Demo Logins (password: `password`)
-| Role      | Email                 |
-|-----------|-----------------------|
-| Employee  | employee@epag.com     |
-| Manager   | manager@epag.com      |
-| Finance   | finance@epag.com      |
-| Materials | materials@epag.com    |
-| Admin     | admin@epag.com        |
+## Role Logins & Passwords
+| Role      | Email                 | Password    |
+|-----------|-----------------------|-------------|
+| Employee  | employee@epag.com     | employee    |
+| Manager   | manager@epag.com      | manager     |
+| Finance   | finance@epag.com      | finance     |
+| Materials | materials@epag.com    | materials   |
+| Admin     | admin@epag.com        | admin       |
 
 ## Development Plan
 See [DEVELOPMENT_PLAN.md](DEVELOPMENT_PLAN.md) for the full phase-by-phase build guide.
