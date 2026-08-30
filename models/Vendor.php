@@ -15,4 +15,11 @@ class Vendor {
         $stmt = $pdo->query('SELECT * FROM vendors ORDER BY name ASC');
         return $stmt->fetchAll();
     }
+
+    public static function create(string $name, bool $approved = true): int {
+        $pdo  = getDB();
+        $stmt = $pdo->prepare('INSERT INTO vendors (name, approved) VALUES (?, ?)');
+        $stmt->execute([$name, $approved ? 1 : 0]);
+        return (int)$pdo->lastInsertId();
+    }
 }

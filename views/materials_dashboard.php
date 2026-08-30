@@ -19,6 +19,18 @@
     <?php unset($_SESSION['flash']); ?>
   <?php endif; ?>
 
+  <div class="card" style="margin-bottom: 1.5rem;">
+    <div class="card-header">
+      <h3>➕ Add New Vendor</h3>
+    </div>
+    <div class="card-body">
+      <form method="POST" action="index.php?action=vendor_create" style="display:flex;gap:12px;align-items:center;max-width:600px;">
+        <input type="text" name="name" placeholder="Vendor Name (e.g. Acme Industrial Supplies)" required style="flex:1;padding:8px 14px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--bg);color:var(--text);font-size:0.9rem;">
+        <button type="submit" class="btn btn-primary">Add Vendor</button>
+      </form>
+    </div>
+  </div>
+
   <div class="card">
     <div class="card-header">
       <h3>Requests Ready for Fulfillment</h3>
