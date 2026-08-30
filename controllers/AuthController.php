@@ -1,6 +1,7 @@
 <?php
 // controllers/AuthController.php
 require_once __DIR__ . '/../config/db.php';
+require_once __DIR__ . '/../models/User.php';
 
 /**
  * Requires the current session user to have one of the given roles.
@@ -42,10 +43,7 @@ class AuthController {
             exit;
         }
 
-        $pdo  = getDB();
-        $stmt = $pdo->prepare('SELECT user_id, name, password_hash, role FROM users WHERE email = ?');
-        $stmt->execute([$email]);
-        $user = $stmt->fetch();
+        $user = User::findByEmail($email);
 
         if (!$user || !password_verify($password, $user['password_hash'])) {
             $_SESSION['login_error'] = 'Invalid email or password.';
